@@ -1,0 +1,13 @@
+.DS_Store
+
+# Renders not currently referenced by index.html — keep them locally,
+# no need to push unused multi-MB assets to the live site's repo.
+images/PLYRA KITCHEN 013.png
+images/PLYRA KITCHEN 014.png
+images/PLYRA KITCHEN 015.png
+images/PLYRA KITCHEN 016.png
+images/PLYRA KITCHEN 018.png
+images/MP4 2K.mp4
+images/hero-orange.webp
+images/hero-petrol.webp
+images/hero-graphite.webp
