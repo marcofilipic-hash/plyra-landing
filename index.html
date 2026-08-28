@@ -1001,6 +1001,19 @@
   /* ============================================================
      FOOTER
      ============================================================ */
+  /* Purely decorative closing band — echoes the hero's canto detail
+     so the page doesn't drop straight from big photography into flat
+     white. No text/links on it (aria-hidden via empty alt), so it
+     can't create a legibility or focus-order problem. */
+  .footer-strip{
+    position:relative;
+    height: clamp(90px, 14vw, 160px);
+    overflow:hidden;
+    border-top: 1px solid var(--line);
+  }
+  .footer-strip .hero-panel-media{
+    object-position: 60% 55%;
+  }
   .site-footer{
     border-top: 1px solid var(--line);
     padding: 22px var(--gutter) 30px;
@@ -1365,6 +1378,10 @@
     </section>
 
   </main>
+
+  <div class="footer-strip">
+    <img class="hero-panel-media" src="images/PLYRA%20KITCHEN%20023.png" alt="" loading="lazy">
+  </div>
 
   <footer class="site-footer">
     <span>© <span id="year"></span> PLYRA — Barcelona</span>
