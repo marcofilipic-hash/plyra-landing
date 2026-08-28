@@ -22,3 +22,8 @@ images/hero-graphite.webp
 plyra_project_1.zip
 plyra_project_1/index.html
 plyra_project_1/images/
+
+# Duplicate re-export of the same briefs folder (identical content,
+# redundant with plyra_project_1/) — not tracked at all.
+plyra_project_1 copy.zip
+plyra_project_1 copy/

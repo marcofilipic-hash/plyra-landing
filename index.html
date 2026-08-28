@@ -770,93 +770,6 @@
   }
 
   /* ============================================================
-     CONVERSION CTA — layout configurator. Reform's OUTLINE section
-     (sketch + instant price) adapted for what PLYRA can actually back
-     up today: no real estimator, so this is a simple IKEA-style "pick
-     your layout" selector — plain line-icon shapes, click to select,
-     feeds into the same placeholder "get in touch" CTA rather than a
-     real quote engine.
-     ============================================================ */
-  .cta-outline{
-    position:relative;
-    padding: clamp(90px, 13vw, 150px) 0;
-    background: var(--bg);
-    border-bottom: 1px solid var(--line);
-  }
-  .cta-outline-copy{
-    position:relative;
-    z-index:1;
-    max-width:52ch;
-    margin:0 auto;
-    padding:0 var(--gutter);
-    text-align:center;
-  }
-  .cta-outline-copy h2{
-    font-weight:500;
-    font-size: clamp(24px, 3vw, 36px);
-    line-height:1.3;
-    letter-spacing:-.01em;
-    margin: 14px 0 0;
-  }
-  .cta-outline-copy .submit-btn{
-    display:inline-block;
-    text-decoration:none;
-  }
-  .layout-picker{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap: clamp(10px, 2vw, 20px);
-    margin: 40px auto 22px;
-    max-width: 720px;
-  }
-  .layout-option{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    gap:10px;
-    width: 108px;
-    padding: 18px 10px 14px;
-    background:none;
-    border: 1px solid var(--line);
-    cursor:pointer;
-    font-family: var(--font);
-    transition: border-color .25s var(--ease), background-color .25s var(--ease);
-  }
-  .layout-option:hover{ border-color: var(--ink-soft); }
-  .layout-option svg{
-    width: 56px;
-    height: 56px;
-  }
-  .layout-option svg rect{
-    fill:none;
-    stroke: var(--ink-faint);
-    stroke-width: 3;
-    transition: stroke .25s var(--ease);
-  }
-  .layout-option span{
-    font-size: 10.5px;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-  .layout-option.active{
-    border-color: var(--ink);
-    background: var(--bg-alt);
-  }
-  .layout-option.active svg rect{ stroke: var(--ink); }
-  .layout-option.active span{ color: var(--ink); font-weight:600; }
-  .layout-note{
-    font-size:12px;
-    color: var(--ink-faint);
-    margin-bottom: 28px;
-  }
-  @media (max-width:640px){
-    .layout-option{ width: 84px; padding: 14px 6px 10px; }
-    .layout-option svg{ width:44px; height:44px; }
-  }
-
-  /* ============================================================
      PROCESS
      ============================================================ */
   .process{
@@ -902,15 +815,17 @@
   }
 
   /* ============================================================
-     CONTACT
+     CONTACT — pre-screen wizard. NOT the in-person "Interview" from
+     Process (see brief) — framed as a quick snapshot before a real
+     conversation happens, one question per screen, sliding carousel.
      ============================================================ */
   .contact{
     padding: clamp(90px, 14vw, 160px) 0 clamp(70px, 10vw, 120px);
   }
-  .contact .container{
-    display:grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 48px;
+  .contact-head{
+    max-width: 640px;
+    margin: 0 auto;
+    text-align:center;
   }
   .contact h2{
     font-weight: 500;
@@ -918,42 +833,22 @@
     line-height: 1.15;
     margin: 14px 0 0;
     letter-spacing: -.01em;
-    max-width: 12ch;
+  }
+  .contact-head .form-note{
+    margin: 14px 0 0;
   }
   .contact-direct{
-    margin-top: 28px;
+    margin-top: 40px;
+    text-align:center;
   }
   .contact-direct a{
     display:inline-block;
-    font-size: 18px;
+    font-size: 15px;
     text-decoration:none;
-    border-bottom: 1px solid var(--ink);
+    border-bottom: 1px solid var(--line);
     padding-bottom: 2px;
-  }
-  .contact-form{ display:flex; flex-direction:column; gap: 18px; }
-  .field{ display:flex; flex-direction:column; gap: 6px; }
-  .field label{
-    font-size: 11px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
     color: var(--ink-soft);
   }
-  .field input,
-  .field textarea{
-    font-family: var(--font);
-    font-size: 15px;
-    padding: 10px 0;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--line);
-    color: var(--ink);
-    outline: none;
-    transition: border-color .3s var(--ease);
-    resize: vertical;
-  }
-  .field input:focus,
-  .field textarea:focus{ border-color: var(--ink); }
-  .field textarea{ min-height: 70px; }
   .submit-btn{
     align-self:flex-start;
     margin-top: 8px;
@@ -969,13 +864,138 @@
     transition: opacity .25s var(--ease);
   }
   .submit-btn:hover{ opacity: .82; }
+  .submit-btn:disabled{ opacity:.4; cursor:default; }
   .form-note{
     font-size: 12px;
     color: var(--ink-faint);
     margin-top: 4px;
   }
-  @media (max-width: 800px){
-    .contact .container{ grid-template-columns: 1fr; gap: 30px; }
+
+  /* --- Wizard shell --- */
+  .wizard{
+    max-width: 560px;
+    margin: 48px auto 0;
+  }
+  .wizard-progress{
+    display:flex;
+    align-items:baseline;
+    justify-content:space-between;
+    margin-bottom: 22px;
+  }
+  .wizard-progress-label{
+    font-family: var(--font-serif);
+    font-size: 13px;
+    color: var(--ink-faint);
+  }
+  .wizard-progress-bar{
+    position:relative;
+    flex:1 1 auto;
+    height:1px;
+    background: var(--line);
+    margin-left: 18px;
+  }
+  .wizard-progress-fill{
+    position:absolute;
+    left:0; top:0; bottom:0;
+    width:0%;
+    background: var(--ink);
+    transition: width .4s var(--ease);
+  }
+  .wizard-viewport{
+    overflow:hidden;
+  }
+  .wizard-track{
+    display:flex;
+    transition: transform .5s var(--ease);
+  }
+  .wizard-step{
+    flex: 0 0 100%;
+    min-width:0;
+  }
+  .wizard-step h3{
+    font-weight:500;
+    font-size: clamp(20px, 2.6vw, 26px);
+    letter-spacing:-.01em;
+    margin: 0 0 20px;
+  }
+  .wizard-choices{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+  .wizard-choice{
+    font-family: var(--font);
+    font-size: 14px;
+    color: var(--ink);
+    background:none;
+    border: 1px solid var(--line);
+    padding: 12px 18px;
+    cursor:pointer;
+    transition: border-color .25s var(--ease), background-color .25s var(--ease);
+  }
+  .wizard-choice:hover{ border-color: var(--ink-soft); }
+  .wizard-choice.active{
+    border-color: var(--ink);
+    background: var(--bg-alt);
+    font-weight:600;
+  }
+  .wizard-field input,
+  .wizard-field textarea{
+    width:100%;
+    font-family: var(--font);
+    font-size: 15px;
+    padding: 10px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    outline: none;
+    transition: border-color .3s var(--ease);
+    resize: vertical;
+  }
+  .wizard-field input:focus,
+  .wizard-field textarea:focus{ border-color: var(--ink); }
+  .wizard-field textarea{ min-height: 80px; }
+  .wizard-field + .wizard-field{ margin-top:18px; }
+  .wizard-field label{
+    display:block;
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom:6px;
+  }
+  .wizard-nav{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top: 32px;
+  }
+  .wizard-back{
+    font-family: var(--font);
+    font-size: 12px;
+    letter-spacing: .06em;
+    color: var(--ink-soft);
+    background:none;
+    border:none;
+    cursor:pointer;
+    padding:0;
+    visibility:hidden;
+  }
+  .wizard-back.is-visible{ visibility:visible; }
+  .wizard-closing{
+    text-align:center;
+    padding: 30px 0 6px;
+  }
+  .wizard-closing h3{
+    font-weight:500;
+    font-size: clamp(22px, 2.8vw, 30px);
+    letter-spacing:-.01em;
+    margin: 0 0 12px;
+  }
+  @media (max-width: 640px){
+    .wizard-choices{ gap:8px; }
+    .wizard-choice{ padding:10px 14px; font-size:13px; }
   }
 
   /* ============================================================
@@ -1067,8 +1087,8 @@
         <div class="proposal-text">
           <p class="eyebrow">The proposal</p>
           <div>
-            <h2>Every kitchen starts with a conversation.</h2>
-            <p class="proposal-meta form-note">Tagline locked this round — final Proposal statement still to be confirmed with Maru.</p>
+            <h2>Kitchens designed around how you actually live — built on a system that already works, finished entirely by hand.</h2>
+            <p class="proposal-meta form-note">Placeholder copy — final two-line statement to be confirmed with Maru.</p>
           </div>
         </div>
         <div class="proposal-media">
@@ -1171,62 +1191,6 @@
     </section>
 
     <!-- ============================================================
-         3B. CONVERSION CTA — layout picker. Selecting a shape is
-         purely visual (JS below just toggles .active) — there's no
-         real estimator behind it yet, so it still feeds the same
-         placeholder "get in touch" CTA rather than a price.
-         ============================================================ -->
-    <section class="cta-outline">
-      <div class="cta-outline-copy">
-        <p class="eyebrow" style="justify-content:center;">Plan your kitchen</p>
-        <h2>Which layout fits your space?</h2>
-      </div>
-
-      <div class="layout-picker" id="layout-picker" role="group" aria-label="Kitchen layout shape">
-        <button class="layout-option active" type="button" data-layout="single-wall" aria-pressed="true">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <rect x="15" y="90" width="90" height="15" rx="2"/>
-          </svg>
-          <span>Single-wall</span>
-        </button>
-        <button class="layout-option" type="button" data-layout="galley" aria-pressed="false">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <rect x="15" y="15" width="90" height="15" rx="2"/>
-            <rect x="15" y="90" width="90" height="15" rx="2"/>
-          </svg>
-          <span>Galley</span>
-        </button>
-        <button class="layout-option" type="button" data-layout="l-shape" aria-pressed="false">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <rect x="15" y="90" width="90" height="15" rx="2"/>
-            <rect x="90" y="15" width="15" height="75" rx="2"/>
-          </svg>
-          <span>L-shape</span>
-        </button>
-        <button class="layout-option" type="button" data-layout="u-shape" aria-pressed="false">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <rect x="15" y="90" width="90" height="15" rx="2"/>
-            <rect x="15" y="15" width="15" height="75" rx="2"/>
-            <rect x="90" y="15" width="15" height="75" rx="2"/>
-          </svg>
-          <span>U-shape</span>
-        </button>
-        <button class="layout-option" type="button" data-layout="island" aria-pressed="false">
-          <svg viewBox="0 0 120 120" aria-hidden="true">
-            <rect x="15" y="90" width="90" height="15" rx="2"/>
-            <rect x="45" y="45" width="30" height="15" rx="2"/>
-          </svg>
-          <span>Island</span>
-        </button>
-      </div>
-
-      <div class="cta-outline-copy">
-        <p class="form-note layout-note">Just a shape picker for now — no live pricing behind it yet.</p>
-        <a class="submit-btn" href="#contact">Get in touch</a>
-      </div>
-    </section>
-
-    <!-- ============================================================
          4. THE PROCESS
          ============================================================ -->
     <section class="process" id="process">
@@ -1264,31 +1228,139 @@
          ============================================================ -->
     <section class="contact" id="contact">
       <div class="container">
-        <div>
-          <p class="eyebrow">Get in touch</p>
-          <h2>Let's talk about your kitchen.</h2>
-          <div class="contact-direct">
-            <a href="mailto:hello@plyra.studio">hello@plyra.studio</a>
-          </div>
-          <p class="form-note" style="margin-top:22px;">Email placeholder — confirm final studio address.</p>
+        <div class="contact-head">
+          <p class="eyebrow" style="justify-content:center;">Before we meet</p>
+          <h2>Tell us about your kitchen.</h2>
+          <p class="form-note">Ten quick questions — so our first real conversation doesn't start from zero.</p>
         </div>
 
-        <form class="contact-form" id="contact-form">
-          <div class="field">
-            <label for="cf-name">Name</label>
-            <input id="cf-name" name="name" type="text" required autocomplete="name">
+        <div class="wizard" id="wizard">
+          <div class="wizard-progress">
+            <span class="wizard-progress-label" id="wizard-progress-label">Step 01 / 10</span>
+            <div class="wizard-progress-bar"><div class="wizard-progress-fill" id="wizard-progress-fill"></div></div>
           </div>
-          <div class="field">
-            <label for="cf-email">Email</label>
-            <input id="cf-email" name="email" type="email" required autocomplete="email">
+
+          <div class="wizard-viewport">
+            <div class="wizard-track" id="wizard-track">
+
+              <div class="wizard-step" data-step="1" data-key="projectType" data-type="single">
+                <h3>What kind of project is this?</h3>
+                <div class="wizard-choices">
+                  <button class="wizard-choice" type="button" data-value="New kitchen">New kitchen</button>
+                  <button class="wizard-choice" type="button" data-value="Renovation">Renovation</button>
+                  <button class="wizard-choice" type="button" data-value="Bar or restaurant">Bar or restaurant</button>
+                  <button class="wizard-choice" type="button" data-value="Another space">Another space</button>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="2" data-key="location" data-type="single">
+                <h3>Where's the space?</h3>
+                <div class="wizard-choices">
+                  <button class="wizard-choice" type="button" data-value="Barcelona">Barcelona</button>
+                  <button class="wizard-choice" type="button" data-value="Greater Barcelona">Greater Barcelona</button>
+                  <button class="wizard-choice" type="button" data-value="Another city">Another city</button>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="3" data-key="stage" data-type="single">
+                <h3>What stage are you at?</h3>
+                <div class="wizard-choices">
+                  <button class="wizard-choice" type="button" data-value="New build">New build</button>
+                  <button class="wizard-choice" type="button" data-value="Renovation in progress">Renovation in progress</button>
+                  <button class="wizard-choice" type="button" data-value="Still planning">Still planning</button>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="4" data-key="timeline" data-type="single">
+                <h3>What's your timeline?</h3>
+                <div class="wizard-choices">
+                  <button class="wizard-choice" type="button" data-value="As soon as possible">As soon as possible</button>
+                  <button class="wizard-choice" type="button" data-value="1–3 months">1–3 months</button>
+                  <button class="wizard-choice" type="button" data-value="3–6 months">3–6 months</button>
+                  <button class="wizard-choice" type="button" data-value="Just exploring">Just exploring</button>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="5" data-key="budget" data-type="single">
+                <h3>What's your rough budget?</h3>
+                <div class="wizard-choices">
+                  <button class="wizard-choice" type="button" data-value="Under €8,000">Under €8,000</button>
+                  <button class="wizard-choice" type="button" data-value="€8,000–15,000">€8,000–15,000</button>
+                  <button class="wizard-choice" type="button" data-value="€15,000–25,000">€15,000–25,000</button>
+                  <button class="wizard-choice" type="button" data-value="€25,000+">€25,000+</button>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="6" data-key="size">
+                <h3>Roughly how big is the space?</h3>
+                <div class="wizard-field">
+                  <label for="wz-size">Approx. size</label>
+                  <input id="wz-size" type="text" placeholder="e.g. 3.5 × 4m, or just describe it">
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="7" data-key="style">
+                <h3>What style are you drawn to?</h3>
+                <div class="wizard-field">
+                  <label for="wz-style">Style &amp; materials</label>
+                  <textarea id="wz-style" placeholder="Materials, finishes, references — anything that comes to mind. You can send photos by email later."></textarea>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="8" data-key="priorities" data-type="multi">
+                <h3>What matters most to you?</h3>
+                <div class="wizard-choices">
+                  <button class="wizard-choice" type="button" data-value="Materials">Materials</button>
+                  <button class="wizard-choice" type="button" data-value="Color">Color</button>
+                  <button class="wizard-choice" type="button" data-value="Functionality">Functionality</button>
+                  <button class="wizard-choice" type="button" data-value="Price">Price</button>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="9" data-key="project">
+                <h3>Tell us about your project</h3>
+                <div class="wizard-field">
+                  <label for="wz-project">Anything else</label>
+                  <textarea id="wz-project" placeholder="The more context, the better."></textarea>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="10" data-key="contact">
+                <h3>How should we reach you?</h3>
+                <div class="wizard-field">
+                  <label for="wz-name">Name</label>
+                  <input id="wz-name" type="text" required autocomplete="name">
+                </div>
+                <div class="wizard-field">
+                  <label for="wz-email">Email</label>
+                  <input id="wz-email" type="email" required autocomplete="email">
+                </div>
+                <div class="wizard-field">
+                  <label for="wz-phone">Phone or Instagram (optional)</label>
+                  <input id="wz-phone" type="text" autocomplete="tel">
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="closing">
+                <div class="wizard-closing">
+                  <h3>Thanks — we'll be in touch to set up a time to talk properly.</h3>
+                  <p class="form-note">That first real conversation — the one that actually shapes your kitchen — happens then.</p>
+                </div>
+              </div>
+
+            </div>
           </div>
-          <div class="field">
-            <label for="cf-message">Message</label>
-            <textarea id="cf-message" name="message" required></textarea>
+
+          <div class="wizard-nav" id="wizard-nav">
+            <button class="wizard-back" id="wizard-back" type="button">← Back</button>
+            <button class="submit-btn" id="wizard-next" type="button">Next</button>
           </div>
-          <button class="submit-btn" type="submit">Send</button>
-          <p class="form-note" id="cf-status" aria-live="polite"></p>
-        </form>
+        </div>
+
+        <div class="contact-direct">
+          <p class="form-note">Prefer to just email us?</p>
+          <a href="mailto:hello@plyra.studio">hello@plyra.studio</a>
+        </div>
       </div>
     </section>
 
@@ -1330,24 +1402,134 @@
       }
 
       /* ---------------------------------------------------------
-         Contact form — no backend yet, so it hands off to mailto.
-         Swap for a real endpoint (Formspree, Vercel function, etc.)
-         when one exists.
+         Pre-screen wizard — a snapshot before the real (in-person)
+         Interview, not a replacement for it (see PLYRA_master_brief
+         §6). No backend yet, so submit hands off to mailto with all
+         answers compiled into the body, same pattern the old
+         single-screen contact form used.
       --------------------------------------------------------- */
-      function initContactForm(){
-        var form = document.getElementById('contact-form');
-        if(!form) return;
-        var status = document.getElementById('cf-status');
-        form.addEventListener('submit', function(e){
-          e.preventDefault();
-          var name = form.name.value.trim();
-          var email = form.email.value.trim();
-          var message = form.message.value.trim();
-          var subject = encodeURIComponent('New enquiry from ' + name);
-          var body = encodeURIComponent(message + '\n\n— ' + name + ' (' + email + ')');
-          window.location.href = 'mailto:hello@plyra.studio?subject=' + subject + '&body=' + body;
-          if(status) status.textContent = 'Opening your email client…';
+      function initWizard(){
+        var track = document.getElementById('wizard-track');
+        if(!track) return;
+        var steps = Array.prototype.slice.call(track.querySelectorAll('.wizard-step'));
+        var totalQuestions = steps.filter(function(s){ return s.getAttribute('data-step') !== 'closing'; }).length;
+        var progressLabel = document.getElementById('wizard-progress-label');
+        var progressFill = document.getElementById('wizard-progress-fill');
+        var progressWrap = document.querySelector('.wizard-progress');
+        var nav = document.getElementById('wizard-nav');
+        var backBtn = document.getElementById('wizard-back');
+        var nextBtn = document.getElementById('wizard-next');
+
+        var answers = {};
+        var index = 0;
+
+        // Choice buttons: single-select clears siblings, multi-select toggles.
+        steps.forEach(function(step){
+          var key = step.getAttribute('data-key');
+          var type = step.getAttribute('data-type');
+          if(!key || !type) return;
+          if(type === 'multi') answers[key] = [];
+          var choices = Array.prototype.slice.call(step.querySelectorAll('.wizard-choice'));
+          choices.forEach(function(btn){
+            btn.addEventListener('click', function(){
+              var value = btn.getAttribute('data-value');
+              if(type === 'single'){
+                choices.forEach(function(b){ b.classList.remove('active'); });
+                btn.classList.add('active');
+                answers[key] = value;
+              } else {
+                btn.classList.toggle('active');
+                var list = answers[key] || [];
+                var pos = list.indexOf(value);
+                if(btn.classList.contains('active')){
+                  if(pos === -1) list.push(value);
+                } else if(pos !== -1){
+                  list.splice(pos, 1);
+                }
+                answers[key] = list;
+              }
+            });
+          });
         });
+
+        function collectTextStep(step){
+          var key = step.getAttribute('data-key');
+          if(!key) return;
+          var inputs = Array.prototype.slice.call(step.querySelectorAll('input, textarea'));
+          if(!inputs.length) return;
+          if(inputs.length === 1){
+            answers[key] = inputs[0].value.trim();
+          } else {
+            var obj = {};
+            inputs.forEach(function(input){ obj[input.id] = input.value.trim(); });
+            answers[key] = obj;
+          }
+        }
+
+        function render(){
+          track.style.transform = 'translateX(-' + (index * 100) + '%)';
+          var onClosing = steps[index].getAttribute('data-step') === 'closing';
+
+          if(onClosing){
+            progressWrap.style.display = 'none';
+            nav.style.display = 'none';
+          } else {
+            progressWrap.style.display = '';
+            nav.style.display = '';
+            var stepNum = index + 1;
+            progressLabel.textContent = 'Step ' + (stepNum < 10 ? '0' : '') + stepNum + ' / ' + totalQuestions;
+            progressFill.style.width = (stepNum / totalQuestions * 100) + '%';
+            backBtn.classList.toggle('is-visible', index > 0);
+            nextBtn.textContent = stepNum === totalQuestions ? 'Submit' : 'Next';
+          }
+        }
+
+        function submitWizard(){
+          var lines = [
+            'Project type: ' + (answers.projectType || '—'),
+            'Location: ' + (answers.location || '—'),
+            'Stage: ' + (answers.stage || '—'),
+            'Timeline: ' + (answers.timeline || '—'),
+            'Budget: ' + (answers.budget || '—'),
+            'Approx. size: ' + (answers.size || '—'),
+            'Style / materials: ' + (answers.style || '—'),
+            'What matters most: ' + ((answers.priorities || []).join(', ') || '—'),
+            'Project notes: ' + (answers.project || '—')
+          ];
+          var contact = answers.contact || {};
+          var name = (contact['wz-name'] || '').trim();
+          var email = (contact['wz-email'] || '').trim();
+          var phone = (contact['wz-phone'] || '').trim();
+          lines.push('Phone / Instagram: ' + (phone || '—'));
+
+          var subject = encodeURIComponent('New enquiry from ' + (name || 'the PLYRA site'));
+          var body = encodeURIComponent(lines.join('\n') + '\n\n— ' + name + ' (' + email + ')');
+          window.location.href = 'mailto:hello@plyra.studio?subject=' + subject + '&body=' + body;
+        }
+
+        nextBtn.addEventListener('click', function(){
+          var step = steps[index];
+          collectTextStep(step);
+
+          if(step.getAttribute('data-step') === '10'){
+            var nameInput = step.querySelector('#wz-name');
+            var emailInput = step.querySelector('#wz-email');
+            if(!nameInput.reportValidity() || !emailInput.reportValidity()) return;
+            submitWizard();
+          }
+
+          index++;
+          render();
+        });
+
+        backBtn.addEventListener('click', function(){
+          if(index > 0){
+            index--;
+            render();
+          }
+        });
+
+        render();
       }
 
       /* ---------------------------------------------------------
@@ -1441,30 +1623,10 @@
         });
       }
 
-      /* ---------------------------------------------------------
-         Layout picker — visual selection only, no estimator behind
-         it yet (see CSS/HTML note on .cta-outline).
-      --------------------------------------------------------- */
-      function initLayoutPicker(){
-        var picker = document.getElementById('layout-picker');
-        if(!picker) return;
-        var options = Array.prototype.slice.call(picker.querySelectorAll('.layout-option'));
-        options.forEach(function(btn){
-          btn.addEventListener('click', function(){
-            options.forEach(function(other){
-              var isThis = other === btn;
-              other.classList.toggle('active', isThis);
-              other.setAttribute('aria-pressed', isThis ? 'true' : 'false');
-            });
-          });
-        });
-      }
-
       document.addEventListener('DOMContentLoaded', function(){
         initReveal();
-        initContactForm();
+        initWizard();
         initProjectsCarousel();
-        initLayoutPicker();
       });
     })();
   </script>
