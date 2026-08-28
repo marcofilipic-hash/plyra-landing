@@ -1,13 +1,24 @@
 .DS_Store
 
-# Renders not currently referenced by index.html — keep them locally,
-# no need to push unused multi-MB assets to the live site's repo.
+# Renders/video not currently referenced by index.html — keep them
+# locally, no need to push unused multi-MB assets to the live site's
+# repo. Referenced today: 019, 023, 027 (PNGs) + MP4 2K.mp4.
+images/PLYRA KITCHEN 012.png
 images/PLYRA KITCHEN 013.png
 images/PLYRA KITCHEN 014.png
 images/PLYRA KITCHEN 015.png
 images/PLYRA KITCHEN 016.png
+images/PLYRA KITCHEN 017.png
 images/PLYRA KITCHEN 018.png
-images/MP4 2K.mp4
+images/PLYRA KITCHEN 024.png
+images/0.png
 images/hero-orange.webp
 images/hero-petrol.webp
 images/hero-graphite.webp
+
+# Stale duplicate snapshot (old 750-line index.html + original 3 webp
+# hero images) and its zip — not the live site, kept for reference
+# only, never deployed. The briefs/*.md docs inside it ARE tracked.
+plyra_project_1.zip
+plyra_project_1/index.html
+plyra_project_1/images/
