@@ -2,7 +2,9 @@
 
 # Renders/video not currently referenced by index.html — keep them
 # locally, no need to push unused multi-MB assets to the live site's
-# repo. Referenced today: 019, 023, 027 (PNGs) + MP4 2K.mp4.
+# repo. Referenced today: 019, 023, 027 (PNGs), MP4 2K.mp4, and the 3
+# hero-*.webp collection photos (now file-referenced, no longer inline
+# base64 — see punch list).
 images/PLYRA KITCHEN 012.png
 images/PLYRA KITCHEN 013.png
 images/PLYRA KITCHEN 014.png
@@ -12,9 +14,6 @@ images/PLYRA KITCHEN 017.png
 images/PLYRA KITCHEN 018.png
 images/PLYRA KITCHEN 024.png
 images/0.png
-images/hero-orange.webp
-images/hero-petrol.webp
-images/hero-graphite.webp
 
 # Stale duplicate snapshot (old 750-line index.html + original 3 webp
 # hero images) and its zip — not the live site, kept for reference
