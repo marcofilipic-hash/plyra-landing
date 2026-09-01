@@ -15,6 +15,14 @@ images/PLYRA KITCHEN 018.png
 images/PLYRA KITCHEN 024.png
 images/0.png
 
+# Original full-res furniture/object renders (22-34MB each) — only the
+# compressed 1400px web versions (EXP-4-web.jpg, EXP-6-web.jpg) are
+# referenced by index.html and tracked. EXP 5/7 aren't used yet either.
+images/EXP 4.png
+images/EXP 5.png
+images/EXP 6.png
+images/EXP 7.png
+
 # Stale duplicate snapshot (old 750-line index.html + original 3 webp
 # hero images) and its zip — not the live site, kept for reference
 # only, never deployed. The briefs/*.md docs inside it ARE tracked.
