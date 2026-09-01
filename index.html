@@ -893,20 +893,13 @@
      RANGE — standalone section, unrelated to the wizard. Big
      full-bleed crossfade (same layered-opacity technique the very
      first version of the hero used), proving PLYRA is a furniture
-     & object studio, not just kitchens.
-     ============================================================ */
+     & object studio, not just kitchens. No separate contained
+     heading block — like every other full-bleed photo moment on
+     the site (hero, Proposal video), the label + statement float
+     directly on the image itself, so it doesn't read as a
+     different kind of section. */
   .range{
     border-bottom: 1px solid var(--line);
-  }
-  .range .container{
-    padding-top: clamp(70px, 10vw, 120px);
-    padding-bottom: clamp(36px, 5vw, 56px);
-  }
-  .range h2{
-    font-weight: 500;
-    font-size: clamp(28px, 4vw, 48px);
-    margin: 14px 0 0;
-    letter-spacing: -.01em;
   }
   .range-media{
     position:relative;
@@ -921,16 +914,17 @@
     height:100%;
     object-fit:cover;
     opacity:0;
-    animation: range-cycle 15s ease-in-out infinite;
+    animation: range-cycle 16s ease-in-out infinite;
   }
   .range-frame:nth-of-type(1){ animation-delay: 0s; }
-  .range-frame:nth-of-type(2){ animation-delay: -5s; }
-  .range-frame:nth-of-type(3){ animation-delay: -10s; }
+  .range-frame:nth-of-type(2){ animation-delay: -4s; }
+  .range-frame:nth-of-type(3){ animation-delay: -8s; }
+  .range-frame:nth-of-type(4){ animation-delay: -12s; }
   @keyframes range-cycle{
     0%   { opacity:0; }
-    4%   { opacity:1; }
-    29%  { opacity:1; }
-    33%  { opacity:0; }
+    3%   { opacity:1; }
+    22%  { opacity:1; }
+    25%  { opacity:0; }
     100% { opacity:0; }
   }
   @media (prefers-reduced-motion: reduce){
@@ -940,19 +934,34 @@
   .range-scrim{
     position:absolute;
     left:0; right:0; bottom:0;
-    height:35%;
+    height:40%;
     background:linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0));
     pointer-events:none;
   }
-  .range-caption{
+  /* Same structure/type-scale as .hero-panel-copy: small uppercase
+     label, larger statement below, bottom-left over the scrim. */
+  .range-copy{
     position:absolute;
     left: var(--gutter);
-    bottom: clamp(24px, 4vw, 40px);
+    bottom: clamp(28px, 4vw, 44px);
     z-index:2;
     color:#fff;
-    font-size:12px;
-    letter-spacing:.06em;
-    text-shadow:0 2px 14px rgba(0,0,0,.35);
+  }
+  .range-copy .label{
+    display:block;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color: rgba(255,255,255,.85);
+    margin-bottom:6px;
+  }
+  .range-copy .statement{
+    font-size: clamp(26px, 3.2vw, 34px);
+    font-weight: 600;
+    letter-spacing: -.01em;
+    line-height: 1;
+    text-shadow: 0 2px 14px rgba(0,0,0,.35);
   }
   @media (max-width:700px){
     .range-media{ height: 60vh; }
@@ -1292,22 +1301,24 @@
 
     <!-- ============================================================
          3B. RANGE — big, standalone, nothing to do with the wizard.
-         Kitchen photo + two angles of the real furniture/object range
-         Marco added (shelving, desk, stools, bench). Bar/restaurant-
-         specific photography still doesn't exist — swap/extend once
-         it does, per PLYRA_master_brief.md's pending case studies.
+         Four angles of the real furniture/object range Marco added
+         (shelving, desk, stools, bench) — these 4 photos only, per
+         Marco. Label + statement float on the image itself, same
+         language as the hero, instead of a separate contained
+         heading block (kept it consistent with the rest of the
+         site's full-bleed photo sections).
          ============================================================ -->
     <section class="range">
-      <div class="container">
-        <p class="eyebrow reveal">Beyond kitchens</p>
-        <h2 class="reveal">The full range</h2>
-      </div>
       <div class="range-media">
-        <img class="range-frame" src="images/hero-orange.webp" alt="PLYRA kitchen, orange collection.">
         <img class="range-frame" src="images/EXP-4-web.jpg" alt="PLYRA furniture and object pieces — shelving, desk, stools, bench.">
-        <img class="range-frame" src="images/EXP-6-web.jpg" alt="PLYRA furniture and object pieces, another angle.">
+        <img class="range-frame" src="images/EXP-5-web.jpg" alt="PLYRA furniture and object pieces, detail angle.">
+        <img class="range-frame" src="images/EXP-6-web.jpg" alt="PLYRA furniture and object pieces, overhead angle.">
+        <img class="range-frame" src="images/EXP-7-web.jpg" alt="PLYRA furniture and object pieces, wide angle.">
         <div class="range-scrim"></div>
-        <p class="range-caption">Kitchens, furniture, objects — a glimpse of the range.</p>
+        <div class="range-copy">
+          <span class="label">Beyond kitchens</span>
+          <span class="statement">The full range</span>
+        </div>
       </div>
     </section>
 
