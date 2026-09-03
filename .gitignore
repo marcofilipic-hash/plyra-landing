@@ -35,7 +35,14 @@ plyra_project_1.zip
 plyra_project_1/index.html
 plyra_project_1/images/
 
-# Duplicate re-export of the same briefs folder (identical content,
-# redundant with plyra_project_1/) — not tracked at all.
+# Duplicate re-exports of the same briefs folder — Marco periodically
+# drops a fresh "copy N" here when he updates the master brief
+# elsewhere. Each time: diff against plyra_project_1/PLYRA_master_brief.md,
+# copy anything new into that tracked folder, then ignore the loose
+# copy — never the source of truth once consolidated.
 plyra_project_1 copy.zip
 plyra_project_1 copy/
+plyra_project_1 copy 2.zip
+plyra_project_1 copy 2/
+plyra_project_1 copy [0-9]*/
+plyra_project_1 copy [0-9]*.zip

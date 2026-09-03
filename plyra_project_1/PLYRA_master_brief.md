@@ -87,7 +87,13 @@ This is the most important structural decision from this session — read carefu
 
 **Also clarify in the real Process copy:** the "Interview" step's description shouldn't sound like a generic "initial consultation" — it should communicate "we're learning how you actually live, cook, store, and move through the space," and should feel continuous with the pre-screen wizard rather than disconnected from it (the wizard is the first layer of that same listening process, the in-person interview is the deep layer).
 
+**Live sketch alongside the wizard (new idea, not yet built).** As the visitor answers each step, a simple line-drawing sketch of a kitchen — same visual register as the technical/architectural line illustration referenced in §4b — builds up or updates beside the questions. Concept: predefined sketch "states" (not literal real-time freehand drawing) that transition smoothly as each answer comes in. For example: answering the size question reveals a floor-plan rectangle proportioned to that size; answering the style question shifts the line color/texture toward that style; answering "what matters most" (materials/color/functionality/price) highlights that specific element in the drawing. The effect should reinforce the feeling that PLYRA is already sketching their kitchen while listening, not just collecting form data — ties directly into the Process → Design step and the "made by hand" register used everywhere else on the site. Needs a proper design/build pass (illustration states, transition logic) — flagged here as a confirmed direction, not yet scoped in detail.
+
 ---
+
+## 7. Price-estimate tool ("OUTLINE"-style), new idea this session
+
+Inspired directly by Reform's OUTLINE flow (reviewed screen-by-screen this session): a short, guided tool that gives visitors a real price estimate, built around PLYRA's own design system rather than Reform's product lines — specifically **vínculo/unión** (joint/connection style, PLYRA's signature detail), **acabado** (finish/material), and **herraje** (custom hardware, once designed). Full flow, screen-by-screen mapping to Reform's steps, and the open question of whether this merges with or stays separate from the pre-screen wizard below, is written up in full in `PLYRA_estimate_tool_brief.md` (in `/briefs`) — read that file before building this, it's too detailed to duplicate here.
 
 ## Open decisions before building
 
@@ -95,6 +101,7 @@ This is the most important structural decision from this session — read carefu
 2. Where does custom hardware (§5) get its first mention — copy-only for now, or wait for photography?
 3. Wizard placement: same page (scroll or modal) or separate route (e.g. `/interview` or `/start`)?
 4. Question order within the wizard — likely qualification questions first (faster to answer), more reflective ones (style, "tell us your project") later once some commitment is built.
+5. Does the new price-estimate tool (§7) merge with the pre-screen wizard into one flow, or stay as a separate, more visual "configure your kitchen" tool? See `PLYRA_estimate_tool_brief.md` for the tradeoffs — leaning toward merging for v1.
 
 ## Still pending from earlier (unchanged, carried forward)
 
