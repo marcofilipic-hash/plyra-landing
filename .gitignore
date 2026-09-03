@@ -23,6 +23,11 @@ images/EXP 5.png
 images/EXP 6.png
 images/EXP 7.png
 
+# Original PICA-PICA renders (21 PNGs, 30-140MB each, plus the source
+# MP4/PNG poster) — only the compressed images/pica-pica-*.jpg + the
+# copied images/pica-pica-grapes.mp4 are referenced by index.html.
+images/PLYRA PRODUCTS/
+
 # Stale duplicate snapshot (old 750-line index.html + original 3 webp
 # hero images) and its zip — not the live site, kept for reference
 # only, never deployed. The briefs/*.md docs inside it ARE tracked.

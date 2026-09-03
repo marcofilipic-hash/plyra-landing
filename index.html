@@ -446,6 +446,109 @@
   }
 
   /* ============================================================
+     PRODUCTS — PICA-PICA carousel. Starts on the grapes video, then
+     advances through product stills (two settings — warm stone
+     kitchen, dark green kitchen). Same slide-track mechanism as the
+     wizard (index state + translateX), simpler than the old
+     scroll-snap projects carousel since these are fixed slides, not
+     free-scrollable cards.
+     ============================================================ */
+  .products{
+    border-bottom: 1px solid var(--line);
+  }
+  .products-media{
+    position:relative;
+    height: 80vh;
+    overflow:hidden;
+    background:#1b1b1b;
+  }
+  .products-track{
+    display:flex;
+    height:100%;
+    transition: transform .6s var(--ease);
+  }
+  .products-slide{
+    position:relative;
+    flex:0 0 100%;
+    min-width:0;
+    height:100%;
+  }
+  .products-frame{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
+  .products-scrim{
+    position:absolute;
+    left:0; right:0; bottom:0;
+    height:35%;
+    background:linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0));
+    pointer-events:none;
+    z-index:1;
+  }
+  .products-copy{
+    position:absolute;
+    left: var(--gutter);
+    bottom: clamp(28px, 4vw, 44px);
+    z-index:2;
+    color:#fff;
+    pointer-events:none;
+  }
+  .products-copy .label{
+    display:block;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color: rgba(255,255,255,.85);
+    margin-bottom:6px;
+  }
+  .products-copy .statement{
+    font-size: clamp(26px, 3.2vw, 34px);
+    font-weight: 600;
+    letter-spacing: -.01em;
+    line-height: 1;
+    text-shadow: 0 2px 14px rgba(0,0,0,.35);
+  }
+  .products-arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    z-index:3;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.5);
+    background:rgba(0,0,0,.25);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    transition: background-color .25s var(--ease), border-color .25s var(--ease), transform .25s var(--ease);
+  }
+  .products-arrow:hover{ background:rgba(255,255,255,.92); color:var(--ink); border-color:rgba(255,255,255,.92); }
+  .products-arrow:focus-visible{ outline:2px solid #fff; outline-offset:2px; }
+  .products-arrow.prev{ left: clamp(16px, 2.5vw, 36px); }
+  .products-arrow.next{ right: clamp(16px, 2.5vw, 36px); }
+  .products-counter{
+    position:absolute;
+    right: var(--gutter);
+    bottom: clamp(28px, 4vw, 44px);
+    z-index:2;
+    color: rgba(255,255,255,.85);
+    font-size:12px;
+    letter-spacing:.08em;
+    text-shadow:0 2px 14px rgba(0,0,0,.35);
+  }
+  @media (max-width:700px){
+    .products-media{ height: 60vh; }
+    .products-arrow{ width:36px; height:36px; }
+  }
+
+  /* ============================================================
      MATERIAL STUDIES — EDITORIAL GALLERY
      ============================================================ */
   .material-studies{
@@ -787,6 +890,7 @@
     <a href="#top" class="wordmark">PLYRA <span>· Furniture &amp; Object Studio</span></a>
     <nav class="site-nav">
       <a href="#projects">Projects</a>
+      <a href="#products">Products</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -857,6 +961,51 @@
           <source src="images/20120-0359.mp4" type="video/mp4">
         </video>
         <div class="projects-scrim"></div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3B. PRODUCTS — PICA-PICA carousel. Starts on the grapes
+         video, then 5 curated stills (2 settings) from the 21 Marco
+         added in images/PLYRA PRODUCTS/ — the rest are there if more
+         get added later, same pattern.
+         ============================================================ -->
+    <section class="products" id="products">
+      <div class="products-media" tabindex="0" role="region" aria-label="PICA-PICA product carousel">
+        <div class="products-track" id="products-track">
+          <div class="products-slide">
+            <video class="products-frame" autoplay muted loop playsinline preload="metadata" poster="images/pica-pica-poster.jpg" aria-label="PLYRA PICA-PICA — placing grapes on a plate">
+              <source src="images/pica-pica-grapes.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-1.jpg" alt="PLYRA PICA-PICA plates and vase on a stone counter, with pears and bread.">
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-2.jpg" alt="PLYRA PICA-PICA plates with a matching knife block and vase.">
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-3.jpg" alt="PLYRA PICA-PICA plates, close view with pears and bread.">
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-4.jpg" alt="PLYRA PICA-PICA plates in a dark green kitchen with round mirrors.">
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-5.jpg" alt="PLYRA PICA-PICA plates, closer view of the dark green kitchen.">
+          </div>
+        </div>
+        <div class="products-scrim"></div>
+        <div class="products-copy">
+          <span class="label">Pica-pica</span>
+          <span class="statement">Plates &amp; bowls, made by hand</span>
+        </div>
+        <div class="products-counter" id="products-counter">01 / 06</div>
+        <button class="products-arrow prev" id="prod-prev" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="products-arrow next" id="prod-next" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
       </div>
     </section>
 
@@ -1068,6 +1217,46 @@
       }
 
       /* ---------------------------------------------------------
+         Products carousel — same track/index mechanism as the
+         wizard: translateX on a flex track, prev/next wrap around.
+      --------------------------------------------------------- */
+      function initProductsCarousel(){
+        var track = document.getElementById('products-track');
+        if(!track) return;
+        var slides = Array.prototype.slice.call(track.querySelectorAll('.products-slide'));
+        var total = slides.length;
+        var counter = document.getElementById('products-counter');
+        var prevBtn = document.getElementById('prod-prev');
+        var nextBtn = document.getElementById('prod-next');
+        var media = document.querySelector('.products-media');
+        var index = 0;
+
+        function render(){
+          track.style.transform = 'translateX(-' + (index * 100) + '%)';
+          if(counter){
+            var n = index + 1;
+            counter.textContent = (n < 10 ? '0' : '') + n + ' / ' + (total < 10 ? '0' : '') + total;
+          }
+        }
+
+        function go(delta){
+          index = (index + delta + total) % total;
+          render();
+        }
+
+        if(prevBtn) prevBtn.addEventListener('click', function(){ go(-1); });
+        if(nextBtn) nextBtn.addEventListener('click', function(){ go(1); });
+        if(media){
+          media.addEventListener('keydown', function(e){
+            if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
+            else if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
+          });
+        }
+
+        render();
+      }
+
+      /* ---------------------------------------------------------
          Generic scroll-reveal for section content below the fold
       --------------------------------------------------------- */
       function initReveal(){
@@ -1224,6 +1413,7 @@
         initReducedMotionVideos();
         initReveal();
         initWizard();
+        initProductsCarousel();
       });
     })();
   </script>
