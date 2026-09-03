@@ -770,6 +770,78 @@
     background: var(--bg-alt);
     font-weight:600;
   }
+  /* Layout-shape step — same simple line-icon device as before,
+     just reused here as one wizard step instead of its own section. */
+  .wizard-choice-icon{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:10px;
+    width: 100px;
+    padding: 16px 8px 12px;
+    background:none;
+    border: 1px solid var(--line);
+    cursor:pointer;
+    font-family: var(--font);
+    transition: border-color .25s var(--ease), background-color .25s var(--ease);
+  }
+  .wizard-choice-icon:hover{ border-color: var(--ink-soft); }
+  .wizard-choice-icon svg{ width:48px; height:48px; }
+  .wizard-choice-icon svg rect{
+    fill:none;
+    stroke: var(--ink-faint);
+    stroke-width: 3;
+    transition: stroke .25s var(--ease);
+  }
+  .wizard-choice-icon span{
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+  }
+  .wizard-choice-icon.active{ border-color: var(--ink); background: var(--bg-alt); }
+  .wizard-choice-icon.active svg rect{ stroke: var(--ink); }
+  .wizard-choice-icon.active span{ color: var(--ink); font-weight:600; }
+
+  /* Acabado step — same button shell, a real finish photo instead
+     of an icon. */
+  .wizard-choice-photo{
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    gap:8px;
+    width: 120px;
+    padding: 6px;
+    background:none;
+    border: 1px solid var(--line);
+    cursor:pointer;
+    font-family: var(--font);
+    transition: border-color .25s var(--ease), background-color .25s var(--ease);
+  }
+  .wizard-choice-photo:hover{ border-color: var(--ink-soft); }
+  .wizard-choice-photo img{
+    width:100%;
+    aspect-ratio: 4/3;
+    object-fit:cover;
+  }
+  .wizard-choice-photo span{
+    font-size: 10.5px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    padding-bottom:4px;
+    text-align:center;
+  }
+  .wizard-choice-photo.active{ border-color: var(--ink); }
+  .wizard-choice-photo.active span{ color: var(--ink); font-weight:600; }
+
+  /* Vínculo / herraje — no real content yet, just an honest note. */
+  .wizard-coming-soon{
+    color: var(--ink-faint);
+    font-size:14px;
+    line-height:1.6;
+    max-width:40ch;
+  }
   .wizard-field input,
   .wizard-field textarea{
     width:100%;
@@ -817,6 +889,15 @@
   .wizard-closing{
     text-align:center;
     padding: 30px 0 6px;
+  }
+  .wizard-closing .price-note{
+    display:block;
+    font-size:11px;
+    font-weight:600;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color: var(--ink-faint);
+    margin-bottom:10px;
   }
   .wizard-closing h3{
     font-weight:500;
@@ -1049,7 +1130,7 @@
         <div class="contact-head">
           <p class="eyebrow" style="justify-content:center;">Before we meet</p>
           <h2>Tell us about your space.</h2>
-          <p class="form-note">Ten quick questions — so our first real conversation doesn't start from zero.</p>
+          <p class="form-note">A few quick questions — so our first real conversation doesn't start from zero.</p>
         </div>
 
         <div class="wizard" id="wizard">
@@ -1071,7 +1152,65 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="2" data-key="location" data-type="single">
+              <div class="wizard-step" data-step="2" data-key="layoutShape" data-type="single">
+                <h3>Which layout fits your space?</h3>
+                <div class="wizard-choices">
+                  <button class="wizard-choice-icon" type="button" data-value="Single-wall">
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="15" y="90" width="90" height="15" rx="2"/></svg>
+                    <span>Single-wall</span>
+                  </button>
+                  <button class="wizard-choice-icon" type="button" data-value="Galley">
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="15" y="15" width="90" height="15" rx="2"/><rect x="15" y="90" width="90" height="15" rx="2"/></svg>
+                    <span>Galley</span>
+                  </button>
+                  <button class="wizard-choice-icon" type="button" data-value="L-shape">
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="15" y="90" width="90" height="15" rx="2"/><rect x="90" y="15" width="15" height="75" rx="2"/></svg>
+                    <span>L-shape</span>
+                  </button>
+                  <button class="wizard-choice-icon" type="button" data-value="U-shape">
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="15" y="90" width="90" height="15" rx="2"/><rect x="15" y="15" width="15" height="75" rx="2"/><rect x="90" y="15" width="15" height="75" rx="2"/></svg>
+                    <span>U-shape</span>
+                  </button>
+                  <button class="wizard-choice-icon" type="button" data-value="Island">
+                    <svg viewBox="0 0 120 120" aria-hidden="true"><rect x="15" y="90" width="90" height="15" rx="2"/><rect x="45" y="45" width="30" height="15" rx="2"/></svg>
+                    <span>Island</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="3" data-key="finish" data-type="single">
+                <h3>Which finish are you drawn to?</h3>
+                <div class="wizard-choices">
+                  <button class="wizard-choice-photo" type="button" data-value="Orange">
+                    <img src="images/hero-orange.webp" alt="">
+                    <span>Orange</span>
+                  </button>
+                  <button class="wizard-choice-photo" type="button" data-value="Graphite">
+                    <img src="images/hero-graphite.webp" alt="">
+                    <span>Graphite</span>
+                  </button>
+                  <button class="wizard-choice-photo" type="button" data-value="Petrol">
+                    <img src="images/hero-petrol.webp" alt="">
+                    <span>Petrol</span>
+                  </button>
+                  <button class="wizard-choice-photo" type="button" data-value="Full Wood">
+                    <img src="images/PLYRA%20KITCHEN%20019.png" alt="">
+                    <span>Full Wood</span>
+                  </button>
+                </div>
+              </div>
+
+              <div class="wizard-step" data-step="4">
+                <h3>Vínculo — joint &amp; connection style</h3>
+                <p class="wizard-coming-soon">Coming soon — we're still photographing the joint details that make each PLYRA piece hold together. This step will let you choose one once it's ready.</p>
+              </div>
+
+              <div class="wizard-step" data-step="5">
+                <h3>Herraje — hardware &amp; pulls</h3>
+                <p class="wizard-coming-soon">Coming soon — PLYRA's own drawer pulls and hardware are still in design. This step will let you choose a style once they exist.</p>
+              </div>
+
+              <div class="wizard-step" data-step="6" data-key="location" data-type="single">
                 <h3>Where's the space?</h3>
                 <div class="wizard-choices">
                   <button class="wizard-choice" type="button" data-value="Barcelona">Barcelona</button>
@@ -1080,7 +1219,7 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="3" data-key="stage" data-type="single">
+              <div class="wizard-step" data-step="7" data-key="stage" data-type="single">
                 <h3>What stage are you at?</h3>
                 <div class="wizard-choices">
                   <button class="wizard-choice" type="button" data-value="New build">New build</button>
@@ -1089,7 +1228,7 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="4" data-key="timeline" data-type="single">
+              <div class="wizard-step" data-step="8" data-key="timeline" data-type="single">
                 <h3>What's your timeline?</h3>
                 <div class="wizard-choices">
                   <button class="wizard-choice" type="button" data-value="As soon as possible">As soon as possible</button>
@@ -1099,7 +1238,7 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="5" data-key="budget" data-type="single">
+              <div class="wizard-step" data-step="9" data-key="budget" data-type="single">
                 <h3>What's your rough budget?</h3>
                 <div class="wizard-choices">
                   <button class="wizard-choice" type="button" data-value="Under €8,000">Under €8,000</button>
@@ -1109,7 +1248,7 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="6" data-key="size">
+              <div class="wizard-step" data-step="10" data-key="size">
                 <h3>Roughly how big is the space?</h3>
                 <div class="wizard-field">
                   <label for="wz-size">Approx. size</label>
@@ -1117,7 +1256,7 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="7" data-key="style">
+              <div class="wizard-step" data-step="11" data-key="style">
                 <h3>What style are you drawn to?</h3>
                 <div class="wizard-field">
                   <label for="wz-style">Style &amp; materials</label>
@@ -1125,7 +1264,7 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="8" data-key="priorities" data-type="multi">
+              <div class="wizard-step" data-step="12" data-key="priorities" data-type="multi">
                 <h3>What matters most to you?</h3>
                 <div class="wizard-choices">
                   <button class="wizard-choice" type="button" data-value="Materials">Materials</button>
@@ -1135,7 +1274,7 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="9" data-key="project">
+              <div class="wizard-step" data-step="13" data-key="project">
                 <h3>Tell us about your project</h3>
                 <div class="wizard-field">
                   <label for="wz-project">Anything else</label>
@@ -1143,7 +1282,7 @@
                 </div>
               </div>
 
-              <div class="wizard-step" data-step="10" data-key="contact">
+              <div class="wizard-step" data-step="14" data-key="contact">
                 <h3>How should we reach you?</h3>
                 <div class="wizard-field">
                   <label for="wz-name">Name</label>
@@ -1161,6 +1300,7 @@
 
               <div class="wizard-step" data-step="closing">
                 <div class="wizard-closing">
+                  <span class="price-note">Estimated from €8,000 — a reference range, not a quote</span>
                   <h3>Thanks — we'll be in touch to set up a time to talk properly.</h3>
                   <p class="form-note">That first real conversation — the one that actually shapes your space — happens then.</p>
                 </div>
@@ -1304,7 +1444,7 @@
           var type = step.getAttribute('data-type');
           if(!key || !type) return;
           if(type === 'multi') answers[key] = [];
-          var choices = Array.prototype.slice.call(step.querySelectorAll('.wizard-choice'));
+          var choices = Array.prototype.slice.call(step.querySelectorAll('.wizard-choice, .wizard-choice-icon, .wizard-choice-photo'));
           choices.forEach(function(btn){
             btn.addEventListener('click', function(){
               var value = btn.getAttribute('data-value');
@@ -1362,6 +1502,8 @@
         function submitWizard(){
           var lines = [
             'Project type: ' + (answers.projectType || '—'),
+            'Layout shape: ' + (answers.layoutShape || '—'),
+            'Finish: ' + (answers.finish || '—'),
             'Location: ' + (answers.location || '—'),
             'Stage: ' + (answers.stage || '—'),
             'Timeline: ' + (answers.timeline || '—'),
@@ -1386,7 +1528,7 @@
           var step = steps[index];
           collectTextStep(step);
 
-          if(step.getAttribute('data-step') === '10'){
+          if(step.getAttribute('data-key') === 'contact'){
             var nameInput = step.querySelector('#wz-name');
             var emailInput = step.querySelector('#wz-email');
             if(!nameInput.reportValidity() || !emailInput.reportValidity()) return;
