@@ -394,36 +394,91 @@
   }
 
   /* ============================================================
-     PROJECTS — VIDEO. Replaces the old 4-slide finish carousel with
-     a single ambient detail film. Full-bleed, same visual register
-     as the hero/Range full-bleed moments. No caption yet.
+     PROJECTS — 3 collections, stacked full-bleed (one below the
+     other, not a carousel — the video didn't actually show the
+     collections, per Marco). Same text-over-photo language as the
+     hero: label + name + short desc + link, bottom-left over a scrim.
      ============================================================ */
   .projects{
     padding: 0;
     border-bottom: 1px solid var(--line);
   }
-  .projects-media{
+  .collection-block{
     position:relative;
-    height: 80vh;
+    height: 90vh;
     overflow:hidden;
     background:#14120F;
+    border-bottom: 1px solid var(--line);
   }
-  .projects-video{
+  .collection-block:last-child{ border-bottom:none; }
+  .collection-media{
     position:absolute;
     inset:0;
     width:100%;
     height:100%;
     object-fit:cover;
+    transition: transform 1.2s var(--ease);
   }
-  .projects-scrim{
+  .collection-block:hover .collection-media{ transform: scale(1.035); }
+  .collection-scrim{
     position:absolute;
     left:0; right:0; bottom:0;
-    height:30%;
-    background:linear-gradient(to top, rgba(0,0,0,.4), rgba(0,0,0,0));
+    height:40%;
+    background:linear-gradient(to top, rgba(0,0,0,.5), rgba(0,0,0,0));
     pointer-events:none;
   }
+  .collection-info{
+    position:absolute;
+    left: var(--gutter);
+    bottom: clamp(32px, 4.5vw, 48px);
+    z-index:2;
+    color:#fff;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+    max-width: min(90%, 650px);
+  }
+  .collection-info .place{
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.9);
+    margin-bottom: 6px;
+    text-shadow: 0 1px 10px rgba(0,0,0,.8);
+  }
+  .collection-info .name{
+    font-size: clamp(28px, 3.8vw, 44px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    line-height: 1.1;
+    text-shadow: 0 2px 24px rgba(0,0,0,.85);
+  }
+  .collection-info .desc{
+    margin: 10px 0 2px;
+    font-size: clamp(13px, 1.1vw, 15px);
+    line-height: 1.55;
+    color: rgba(255,255,255,.9);
+    max-width: 50ch;
+    text-shadow: 0 2px 18px rgba(0,0,0,.85);
+  }
+  .collection-cta{
+    margin-top: 14px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: .04em;
+    color: #fff;
+    text-decoration: none;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,.45);
+    transition: border-color .3s var(--ease), transform .3s var(--ease);
+  }
+  .collection-cta:hover{ border-color:#fff; transform: translateX(4px); }
   @media (max-width:700px){
-    .projects-media{ height: 55vh; }
+    .collection-block{ height: 70vh; }
   }
 
 
