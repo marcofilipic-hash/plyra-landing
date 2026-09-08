@@ -600,6 +600,118 @@
   }
 
   /* ============================================================
+     SHOP (small objects — 3-item launch)
+     ============================================================ */
+  .shop{
+    padding: clamp(70px, 10vw, 120px) 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .shop .section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  .shop h2{
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 48px);
+    margin: 14px 0 0;
+    letter-spacing: -.01em;
+  }
+  .shop-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: var(--line);
+  }
+  .shop-card{
+    background: var(--bg);
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    flex-direction:column;
+  }
+  .shop-card .thumb{
+    position:relative;
+    aspect-ratio: 1/1;
+    overflow:hidden;
+    background: var(--bg-alt);
+  }
+  .shop-card .thumb img{
+    width:100%; height:100%;
+    object-fit:cover;
+    transition: transform .8s var(--ease);
+  }
+  .shop-card:hover .thumb img{ transform: scale(1.045); }
+  /* Placeholder state — remove this block and drop a real <img> in once product photos exist */
+  .shop-card .thumb.placeholder{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background:
+      repeating-linear-gradient(135deg, var(--bg-alt), var(--bg-alt) 10px, #E1DDD2 10px, #E1DDD2 11px);
+  }
+  .shop-card .thumb.placeholder span{
+    font-size: 10px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    background: var(--bg);
+    padding: 8px 12px;
+    line-height: 1.6;
+    max-width: 70%;
+  }
+  .shop-card .meta{
+    padding: 18px 20px 22px;
+    display:flex;
+    flex-direction:column;
+    gap: 10px;
+    flex:1;
+  }
+  .shop-card .meta .name{
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .shop-card .meta .price{
+    font-size: 13px;
+    color: var(--ink-soft);
+  }
+  .shop-card .meta .buy-btn{
+    margin-top: auto;
+    align-self:flex-start;
+    font-family: var(--font);
+    font-size: 11px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    background: var(--ink);
+    color: var(--bg);
+    border: none;
+    padding: 11px 20px;
+    cursor:pointer;
+    text-decoration:none;
+    display:inline-block;
+    transition: opacity .25s var(--ease);
+  }
+  .shop-card .meta .buy-btn:hover{ opacity: .82; }
+  .shop-card .meta .buy-btn[disabled],
+  .shop-card .meta .buy-btn.is-disabled{
+    opacity: .45;
+    cursor: default;
+    pointer-events: none;
+  }
+  .shop-note{
+    margin-top: 22px;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  @media (max-width: 860px){
+    .shop-grid{ grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
      PROCESS
      ============================================================ */
   .process{
@@ -972,6 +1084,7 @@
     <nav class="site-nav">
       <a href="#projects">Projects</a>
       <a href="#products">Products</a>
+      <a href="#shop">Shop</a>
       <a href="#process">Process</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -1086,6 +1199,82 @@
         <button class="products-arrow next" id="prod-next" aria-label="Next">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
         </button>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         3C. SHOP — small objects, 3-item launch. Placeholder section,
+         ready for real product photos + Ecwid checkout. Ported from
+         a plyra_project_1 copy (built there against a stale/older
+         index.html) — content and structure unchanged from that.
+
+         TO ADD REAL PRODUCT PHOTOS:
+         Replace each `<div class="thumb placeholder">...</div>` block
+         below with `<div class="thumb"><img src="images/shop-01.webp"
+         alt="..."></div>` (same pattern as Projects/Collections).
+         Recommended: square (1:1) photos, at least 1200x1200px,
+         consistent lighting/background across all three since they
+         share packaging. Suggested filenames: images/shop-01.webp,
+         images/shop-02.webp, images/shop-03.webp.
+
+         TO CONNECT REAL CHECKOUT (once an Ecwid account exists):
+         Replace each `<a class="buy-btn is-disabled">Coming soon</a>`
+         with Ecwid's product Buy Button embed code for that product
+         (Ecwid dashboard -> Products -> [product] -> Buy Button ->
+         Get the code). See PLYRA_shop_shipping_brief.md in
+         plyra_project_1/briefs/ for the recommended plan (Ecwid
+         Starter, $5/mo) and shipping setup (flat rate via Correos
+         Paq Ligero, since all 3 share packaging).
+
+         Names, prices and description text below are placeholders —
+         swap for the real product names/prices once decided.
+         ============================================================ -->
+    <section class="shop" id="shop">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Small objects</p>
+            <h2>Start with something small</h2>
+          </div>
+          <p class="form-note" style="max-width:34ch;">Three pieces, one shared packaging, made from the same plywood and finishes we use in every kitchen — a small way to have PLYRA at home.</p>
+        </div>
+
+        <div class="shop-grid">
+          <article class="shop-card reveal">
+            <div class="thumb placeholder">
+              <span>Add product photo<br>1200×1200px min, square</span>
+            </div>
+            <div class="meta">
+              <span class="name">Object 01</span>
+              <span class="price">€ — </span>
+              <a class="buy-btn is-disabled" href="#" aria-disabled="true">Coming soon</a>
+            </div>
+          </article>
+
+          <article class="shop-card reveal">
+            <div class="thumb placeholder">
+              <span>Add product photo<br>1200×1200px min, square</span>
+            </div>
+            <div class="meta">
+              <span class="name">Object 02</span>
+              <span class="price">€ — </span>
+              <a class="buy-btn is-disabled" href="#" aria-disabled="true">Coming soon</a>
+            </div>
+          </article>
+
+          <article class="shop-card reveal">
+            <div class="thumb placeholder">
+              <span>Add product photo<br>1200×1200px min, square</span>
+            </div>
+            <div class="meta">
+              <span class="name">Object 03</span>
+              <span class="price">€ — </span>
+              <a class="buy-btn is-disabled" href="#" aria-disabled="true">Coming soon</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="shop-note">One small batch at a time. Ships within Spain. Sign up below to know when they're available.</p>
       </div>
     </section>
 
