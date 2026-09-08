@@ -55,3 +55,13 @@ plyra_project_1 copy [0-9]*.zip
 plyra_project_multipage.zip
 plyra_project_multipage/
 images/20120-0359.mp4
+
+# BISEL-renamed re-exports of the same two reference folders above
+# (the PLYRA->BISEL rebrand, 2026-09-08) — pure find/replace of the
+# already-consolidated content, no new information. The live site
+# (index.html etc., bisel.css/bisel.js) already carries the rename;
+# these are historical/reference only, never the source of truth.
+bisel_project.zip
+bisel_project/
+bisel_project_multipage.zip
+bisel_project_multipage/
