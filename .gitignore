@@ -46,3 +46,11 @@ plyra_project_1 copy 2.zip
 plyra_project_1 copy 2/
 plyra_project_1 copy [0-9]*/
 plyra_project_1 copy [0-9]*.zip
+
+# Multi-page reference draft, built against a stale index.html by
+# another session purely to show the file-split pattern — migration
+# was applied to the real live pages instead of overwriting them with
+# this. Its one new doc (PLYRA_multipage_notes.md) is consolidated
+# into plyra_project_1/briefs/.
+plyra_project_multipage.zip
+plyra_project_multipage/

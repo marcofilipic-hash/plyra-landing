@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLYRA — Products</title>
+<meta name="description" content="PLYRA is a Barcelona-based furniture and object studio designing and fabricating kitchens and living spaces.">
+<!-- og:url and og:image are relative for now — swap to absolute URLs
+     (https://your-domain/...) once the final Vercel/custom domain is
+     confirmed, or link-preview crawlers (WhatsApp, Instagram) won't
+     resolve them. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PLYRA — Products">
+<meta property="og:description" content="PLYRA is a Barcelona-based furniture and object studio designing and fabricating kitchens and living spaces.">
+<meta property="og:image" content="images/PLYRA%20KITCHEN%20019.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="plyra.css">
+</head>
+<body>
+
+  <div class="super-header" aria-hidden="true">
+    <div class="super-header-track">
+      <div class="super-header-half">
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+      </div>
+      <div class="super-header-half">
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <a href="index.html" class="wordmark">PLYRA <span>· Furniture &amp; Object Studio</span></a>
+    <nav class="site-nav">
+      <a href="projects.html">Projects</a>
+      <a href="products.html" class="is-active">Products</a>
+      <a href="shop.html">Shop</a>
+      <a href="process.html">Process</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ============================================================
+         3B. PRODUCTS — PICA-PICA carousel. Starts on the grapes
+         video, then 5 curated stills (2 settings) from the 21 Marco
+         added in images/PLYRA PRODUCTS/ — the rest are there if more
+         get added later, same pattern.
+         ============================================================ -->
+    <section class="products" id="products">
+      <div class="products-media" tabindex="0" role="region" aria-label="PICA-PICA product carousel">
+        <div class="products-track" id="products-track">
+          <div class="products-slide">
+            <video class="products-frame" autoplay muted loop playsinline preload="metadata" poster="images/pica-pica-poster.jpg" aria-label="PLYRA PICA-PICA — placing grapes on a plate">
+              <source src="images/pica-pica-grapes.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-1.jpg" alt="PLYRA PICA-PICA plates and vase on a stone counter, with pears and bread.">
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-2.jpg" alt="PLYRA PICA-PICA plates with a matching knife block and vase.">
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-3.jpg" alt="PLYRA PICA-PICA plates, close view with pears and bread.">
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-4.jpg" alt="PLYRA PICA-PICA plates in a dark green kitchen with round mirrors.">
+          </div>
+          <div class="products-slide">
+            <img class="products-frame" src="images/pica-pica-5.jpg" alt="PLYRA PICA-PICA plates, closer view of the dark green kitchen.">
+          </div>
+        </div>
+        <div class="products-scrim"></div>
+        <div class="products-copy">
+          <span class="label">Pica-pica</span>
+          <span class="statement">Plates &amp; bowls, made by hand</span>
+        </div>
+        <div class="products-counter" id="products-counter">01 / 06</div>
+        <button class="products-arrow prev" id="prod-prev" aria-label="Previous">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
+        </button>
+        <button class="products-arrow next" id="prod-next" aria-label="Next">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </button>
+      </div>
+    </section>
+
+
+  </main>
+
+  <div class="footer-strip">
+    <img class="hero-panel-media" src="images/PLYRA%20KITCHEN%20023.png" alt="" loading="lazy">
+  </div>
+
+  <footer class="site-footer">
+    <span>© PLYRA. Copy the kitchen, not the website.</span>
+    <div class="footer-links">
+      <a href="mailto:hello@plyra.studio">Email</a>
+      <a href="#" onclick="return false;">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="plyra.js"></script>
+</body>
+</html>

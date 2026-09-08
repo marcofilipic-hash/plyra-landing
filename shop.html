@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PLYRA — Shop</title>
+<meta name="description" content="PLYRA is a Barcelona-based furniture and object studio designing and fabricating kitchens and living spaces.">
+<!-- og:url and og:image are relative for now — swap to absolute URLs
+     (https://your-domain/...) once the final Vercel/custom domain is
+     confirmed, or link-preview crawlers (WhatsApp, Instagram) won't
+     resolve them. -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="PLYRA — Shop">
+<meta property="og:description" content="PLYRA is a Barcelona-based furniture and object studio designing and fabricating kitchens and living spaces.">
+<meta property="og:image" content="images/PLYRA%20KITCHEN%20019.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="plyra.css">
+</head>
+<body>
+
+  <div class="super-header" aria-hidden="true">
+    <div class="super-header-track">
+      <div class="super-header-half">
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+      </div>
+      <div class="super-header-half">
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+        <span>Designed around you. Built by hand</span>
+      </div>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <a href="index.html" class="wordmark">PLYRA <span>· Furniture &amp; Object Studio</span></a>
+    <nav class="site-nav">
+      <a href="projects.html">Projects</a>
+      <a href="products.html">Products</a>
+      <a href="shop.html" class="is-active">Shop</a>
+      <a href="process.html">Process</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- ============================================================
+         3C. SHOP — small objects, 3-item launch. Placeholder section,
+         ready for real product photos + Ecwid checkout. Ported from
+         a plyra_project_1 copy (built there against a stale/older
+         index.html) — content and structure unchanged from that.
+
+         TO ADD REAL PRODUCT PHOTOS:
+         Replace each `<div class="thumb placeholder">...</div>` block
+         below with `<div class="thumb"><img src="images/shop-01.webp"
+         alt="..."></div>` (same pattern as Projects/Collections).
+         Recommended: square (1:1) photos, at least 1200x1200px,
+         consistent lighting/background across all three since they
+         share packaging. Suggested filenames: images/shop-01.webp,
+         images/shop-02.webp, images/shop-03.webp.
+
+         TO CONNECT REAL CHECKOUT (once an Ecwid account exists):
+         Replace each `<a class="buy-btn is-disabled">Coming soon</a>`
+         with Ecwid's product Buy Button embed code for that product
+         (Ecwid dashboard -> Products -> [product] -> Buy Button ->
+         Get the code). See PLYRA_shop_shipping_brief.md in
+         plyra_project_1/briefs/ for the recommended plan (Ecwid
+         Starter, $5/mo) and shipping setup (flat rate via Correos
+         Paq Ligero, since all 3 share packaging).
+
+         Names, prices and description text below are placeholders —
+         swap for the real product names/prices once decided.
+         ============================================================ -->
+    <section class="shop" id="shop">
+      <div class="container">
+        <div class="section-head reveal">
+          <div>
+            <p class="eyebrow">Small objects</p>
+            <h2>Start with something small</h2>
+          </div>
+          <p class="form-note" style="max-width:34ch;">Three pieces, one shared packaging, made from the same plywood and finishes we use in every kitchen — a small way to have PLYRA at home.</p>
+        </div>
+
+        <div class="shop-grid">
+          <article class="shop-card reveal">
+            <div class="thumb placeholder">
+              <span>Add product photo<br>1200×1200px min, square</span>
+            </div>
+            <div class="meta">
+              <span class="name">Object 01</span>
+              <span class="price">€ — </span>
+              <a class="buy-btn is-disabled" href="#" aria-disabled="true">Coming soon</a>
+            </div>
+          </article>
+
+          <article class="shop-card reveal">
+            <div class="thumb placeholder">
+              <span>Add product photo<br>1200×1200px min, square</span>
+            </div>
+            <div class="meta">
+              <span class="name">Object 02</span>
+              <span class="price">€ — </span>
+              <a class="buy-btn is-disabled" href="#" aria-disabled="true">Coming soon</a>
+            </div>
+          </article>
+
+          <article class="shop-card reveal">
+            <div class="thumb placeholder">
+              <span>Add product photo<br>1200×1200px min, square</span>
+            </div>
+            <div class="meta">
+              <span class="name">Object 03</span>
+              <span class="price">€ — </span>
+              <a class="buy-btn is-disabled" href="#" aria-disabled="true">Coming soon</a>
+            </div>
+          </article>
+        </div>
+
+        <p class="shop-note">One small batch at a time. Ships within Spain. Sign up below to know when they're available.</p>
+      </div>
+    </section>
+
+
+  </main>
+
+  <div class="footer-strip">
+    <img class="hero-panel-media" src="images/PLYRA%20KITCHEN%20023.png" alt="" loading="lazy">
+  </div>
+
+  <footer class="site-footer">
+    <span>© PLYRA. Copy the kitchen, not the website.</span>
+    <div class="footer-links">
+      <a href="mailto:hello@plyra.studio">Email</a>
+      <a href="#" onclick="return false;">Instagram</a>
+    </div>
+  </footer>
+
+  <script src="plyra.js"></script>
+</body>
+</html>
