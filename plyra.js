@@ -17,46 +17,6 @@
       }
 
       /* ---------------------------------------------------------
-         Products carousel — same track/index mechanism as the
-         wizard: translateX on a flex track, prev/next wrap around.
-      --------------------------------------------------------- */
-      function initProductsCarousel(){
-        var track = document.getElementById('products-track');
-        if(!track) return;
-        var slides = Array.prototype.slice.call(track.querySelectorAll('.products-slide'));
-        var total = slides.length;
-        var counter = document.getElementById('products-counter');
-        var prevBtn = document.getElementById('prod-prev');
-        var nextBtn = document.getElementById('prod-next');
-        var media = document.querySelector('.products-media');
-        var index = 0;
-
-        function render(){
-          track.style.transform = 'translateX(-' + (index * 100) + '%)';
-          if(counter){
-            var n = index + 1;
-            counter.textContent = (n < 10 ? '0' : '') + n + ' / ' + (total < 10 ? '0' : '') + total;
-          }
-        }
-
-        function go(delta){
-          index = (index + delta + total) % total;
-          render();
-        }
-
-        if(prevBtn) prevBtn.addEventListener('click', function(){ go(-1); });
-        if(nextBtn) nextBtn.addEventListener('click', function(){ go(1); });
-        if(media){
-          media.addEventListener('keydown', function(e){
-            if(e.key === 'ArrowLeft'){ e.preventDefault(); go(-1); }
-            else if(e.key === 'ArrowRight'){ e.preventDefault(); go(1); }
-          });
-        }
-
-        render();
-      }
-
-      /* ---------------------------------------------------------
          Generic scroll-reveal for section content below the fold
       --------------------------------------------------------- */
       function initReveal(){
@@ -215,6 +175,5 @@
         initReducedMotionVideos();
         initReveal();
         initWizard();
-        initProductsCarousel();
       });
     })();
