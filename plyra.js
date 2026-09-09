@@ -140,9 +140,9 @@
           var phone = (contact['wz-phone'] || '').trim();
           lines.push('Phone / Instagram: ' + (phone || '—'));
 
-          var subject = encodeURIComponent('New enquiry from ' + (name || 'the BISEL site'));
+          var subject = encodeURIComponent('New enquiry from ' + (name || 'the PLYRA site'));
           var body = encodeURIComponent(lines.join('\n') + '\n\n— ' + name + ' (' + email + ')');
-          window.location.href = 'mailto:hello@bisel.studio?subject=' + subject + '&body=' + body;
+          window.location.href = 'mailto:hello@plyra.studio?subject=' + subject + '&body=' + body;
         }
 
         nextBtn.addEventListener('click', function(){
