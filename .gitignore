@@ -65,3 +65,10 @@ bisel_project.zip
 bisel_project/
 bisel_project_multipage.zip
 bisel_project_multipage/
+
+# BORDE-renamed re-export (the BISEL->BORDE rebrand, 2026-09-09) —
+# this one DID carry real new content (the "Stage" section + Proposal
+# reframing), already applied to the live site and its master brief
+# has no new info beyond what's tracked. Reference only from here on.
+borde_project.zip
+borde_project/

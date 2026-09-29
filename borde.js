@@ -39,7 +39,7 @@
 
       /* ---------------------------------------------------------
          Pre-screen wizard — a snapshot before the real (in-person)
-         Interview, not a replacement for it (see PLYRA_master_brief
+         Interview, not a replacement for it (see BORDE_master_brief
          §6). No backend yet, so submit hands off to mailto with all
          answers compiled into the body, same pattern the old
          single-screen contact form used.
@@ -140,9 +140,9 @@
           var phone = (contact['wz-phone'] || '').trim();
           lines.push('Phone / Instagram: ' + (phone || '—'));
 
-          var subject = encodeURIComponent('New enquiry from ' + (name || 'the PLYRA site'));
+          var subject = encodeURIComponent('New enquiry from ' + (name || 'the BORDE site'));
           var body = encodeURIComponent(lines.join('\n') + '\n\n— ' + name + ' (' + email + ')');
-          window.location.href = 'mailto:hello@plyra.studio?subject=' + subject + '&body=' + body;
+          window.location.href = 'mailto:hello@borde.studio?subject=' + subject + '&body=' + body;
         }
 
         nextBtn.addEventListener('click', function(){

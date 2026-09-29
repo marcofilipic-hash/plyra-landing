@@ -2,7 +2,7 @@
   /* ============================================================
      DESIGN SYSTEM — PLACEHOLDER
      This is a neutral placeholder system (type, spacing, color).
-     Swap the tokens below once Maru delivers the final PLYRA
+     Swap the tokens below once Maru delivers the final BORDE
      design system. Everything references these variables so a
      restyle is mostly a token edit, not a rebuild.
      ============================================================ */
@@ -281,6 +281,92 @@
   }
 
   /* ============================================================
+     STAGE — "where we're starting" framing, sits between the hero
+     and the long-term Proposal statement.
+     ============================================================ */
+  .stage{
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-alt);
+  }
+  .stage-split{
+    display:flex;
+    min-height: 64vh;
+  }
+  .stage-text{
+    flex: 1 1 50%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding: clamp(50px, 6vw, 90px) var(--gutter);
+  }
+  .stage h2{
+    font-weight: 500;
+    font-size: clamp(26px, 3.4vw, 40px);
+    margin: 14px 0 0;
+    letter-spacing: -.01em;
+    max-width: 20ch;
+  }
+  .stage-copy{
+    margin: 18px 0 0;
+    max-width: 52ch;
+    font-size: clamp(15px, 1.3vw, 17px);
+    line-height: 1.6;
+    color: var(--ink-soft);
+  }
+  .stage-cta{
+    display:inline-flex;
+    margin-top: 22px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--ink);
+    padding-bottom: 3px;
+    transition: opacity .25s var(--ease), transform .25s var(--ease);
+    align-self: flex-start;
+  }
+  .stage-cta:hover{ opacity:.7; transform: translateX(4px); }
+  /* Right half — dramatic exploration shot (pots/mirrors), same
+     full-bleed hover-zoom language as the hero panels and proposal
+     media, so it reads as one consistent photographic system. */
+  .stage-media{
+    flex: 1 1 50%;
+    position:relative;
+    overflow:hidden;
+    background:#1b1b1b;
+  }
+  .stage-media-fill{
+    position:absolute;
+    inset:0;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transition: transform 1.2s var(--ease);
+  }
+  .stage-media:hover .stage-media-fill{ transform: scale(1.035); }
+  .stage-media-placeholder{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    background: repeating-linear-gradient(135deg, #2a2a2a, #2a2a2a 10px, #333 10px, #333 11px);
+  }
+  .stage-media-placeholder span{
+    font-size:11px;
+    letter-spacing:.1em;
+    text-transform:uppercase;
+    color:rgba(255,255,255,.65);
+    max-width:22ch;
+    padding:0 20px;
+  }
+  @media (max-width: 800px){
+    .stage-split{ flex-direction:column; min-height:auto; }
+    .stage-media{ height:50vh; }
+  }
+
+  /* ============================================================
      PROPOSAL
      ============================================================ */
   .proposal{
@@ -318,6 +404,11 @@
   }
   .proposal .proposal-meta{
     padding-top: 6px;
+  }
+  .proposal-note{
+    margin: 16px 0 0;
+    font-size: 13px;
+    color: var(--ink-faint);
   }
   /* Right half — same treatment as the hero panels: full-bleed media,
      subtle continuous zoom once a real photo replaces the placeholder. */
